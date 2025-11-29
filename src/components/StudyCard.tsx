@@ -7,11 +7,14 @@ interface StudyCardProps {
   description: string;
   category: string;
   categoryColor?: string;
+  onClick?: () => void;
 }
 
-export const StudyCard = ({ image, title, description, category, categoryColor = "primary" }: StudyCardProps) => {
+export const StudyCard = ({ image, title, description, category, categoryColor = "primary", onClick }: StudyCardProps) => {
   return (
-    <Card className="group overflow-hidden border-0 transition-all duration-300 hover:scale-[1.02] cursor-pointer bg-card" 
+    <Card 
+      onClick={onClick}
+      className="group overflow-hidden border-0 transition-all duration-300 hover:scale-[1.02] cursor-pointer bg-card"
           style={{ boxShadow: 'var(--shadow-card)' }}
           onMouseEnter={(e) => {
             e.currentTarget.style.boxShadow = 'var(--shadow-card-hover)';
